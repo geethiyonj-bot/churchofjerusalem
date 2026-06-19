@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    td, p, h1, h3 { color: white; }
+
+    body {
+      font-size: larger;
+      background-color:blue;
+    }
+
+    center {
+      font-size: xx-large;
+    }
+
+    /* Frame styling */
+    .photo-frame {
+      border: 2px solid white;
+      background-color: white;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      align-items: flex-end;
+    }
+    .box{
+      border-color: white;
+      width: 600px;
+      height:600px;
+      background-color:blue;
+     
+
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1>PERSONAL INFORMATION</h1>
+    <h3>PENTAGOST COMMUNITY REGISTRATION FORM |BY CHURCH OF JERUSALEM</h3>
+    <p>KINDLY FILL YOUR FORM CAREFULLY. ONCE THE FORM IS SAVED YOU CAN'T EDIT IT.</p>
+    <hr>
+    <div class="box">
+    <form>
+     <div class="photo-frame">
+    <img id="preview" src="" alt="Uploaded Photo">
+  </div>
+  <input type="file" accept="image/*" onchange="loadFile(event)">
+
+      <table>
+        <tr><td>NAME</td><td><input type="text" placeholder="enter your name"></td></tr>
+        <tr><td>AGE</td><td><input type="number" placeholder="enter your age"></td></tr>
+        <tr><td>ADDRESS</td><td><input type="text" placeholder="enter your address"></td></tr>
+        <tr><td>EMAIL</td><td><input type="email" placeholder="enter your email"></td></tr>
+        <tr><td>QUALIFICATION</td>
+          <td>
+            <select>
+              <option>UG</option>
+              <option>12TH</option>
+              <option>10TH</option>
+              <option>NULL</option>
+            </select>
+          </td>
+        </tr>
+        <tr><td>UPLOAD</td><td><input type="file"></td></tr>
+        <tr><td><input type="submit"></td><td><input type="reset"></td></tr>
+      </table>
+    </form>
+    </div>
+    <hr>
+    <a href="C:\html\.vscode\game.html" style="color:white;">NEXT PAGE</a>
+  </center>
+
+  <script>
+    function loadFile(event) {
+      const preview = document.getElementById('preview');
+      preview.src = URL.createObjectURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>

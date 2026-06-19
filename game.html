@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body, button, center, p {
+      background-color: blue;
+      color: white;
+      font-size: xx-large;
+    }
+    div {
+      border-color: aqua;
+      padding: 3%;
+      display: inline;
+      background-color: beige;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1>HANDS ON PRACTICE</h1>
+    <title>Rock Paper Scissors</title>
+    <h2 id="scoreDisplay">Your score: 0</h2>
+  </center>
+  <br><br>
+  <center>
+    <div><button onclick="play('stone')">stone</button></div>
+    <div><button onclick="play('paper')">paper</button></div>
+    <div><button onclick="play('scissors')">scissors</button></div>
+    <div><button onclick="resetScore()">refresh</button></div>
+    <br><br><br>
+    <p>
+      Playing games sometimes helps us to think and use our brain to win the voyage.
+      We might find tough times in choosing our goals and future path, whether correct or wrong.
+      But however, seeking help from God in every journey, He guides us on the right path.
+      <br>
+      <h5>THANK YOU</h5>
+      <h5>FOR</h5>
+      <h5>VISITING OUR WEBSITE</h5>
+    </p>
+  </center>
+
+  <script>
+    let score = 0;
+
+    // Generate a fresh computer choice each round
+    function getComputerChoice() {
+      let gen = Math.floor(Math.random() * 10) + 1;
+      if (gen <= 4) return "stone";
+      else if (gen <= 7) return "paper";
+      else return "scissors";
+    }
+
+    function play(userChoice) {
+      let com = getComputerChoice();
+
+      if (userChoice === com) {
+        alert(`Both chose ${com}. It's a draw.`);
+      } else if (
+        (userChoice === "stone" && com === "scissors") ||
+        (userChoice === "paper" && com === "stone") ||
+        (userChoice === "scissors" && com === "paper")
+      ) {
+        alert(`You chose ${userChoice}. Computer chose ${com}. You won!`);
+        score++;
+      } else {
+        alert(`You chose ${userChoice}. Computer chose ${com}. You lose.`);
+        score--;
+        if (score < 0) score = 0; // safeguard: prevent negative score
+      }
+
+      document.getElementById('scoreDisplay').innerText = 'Your score: ' + score;
+    }
+
+    function resetScore() {
+      score = 0;
+      document.getElementById('scoreDisplay').innerText = 'Your score: ' + score;
+    }
+  </script>
+ 
+</body>
+</html>
